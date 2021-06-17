@@ -1,0 +1,85 @@
+:root{
+    --color-nav:#4E94AB;
+    --color-linea:white;
+    --tamano-menu:-90%;
+    
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: blanchedalmond;
+    font-family: sans-serif;
+}
+header{
+    width: 100%;
+    background: var(--color-nav);
+}
+#btn-menu{
+    display: none;/*Desaparede de la Maqueta*/
+    
+}
+header label{
+    
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+     border-right: 1px solid var(--color-linea);
+}
+header label:hover{
+    cursor:pointer;
+    background: rgba(0,0,0,0.3);
+   
+}
+.menu ul{
+    margin: 0px;
+    list-style: none;/*Quita el estilo de Lista*/
+    padding: 0px;
+    display: flex; /* Hace que los li dentro sean Cajas Flexibles y los
+    organiza por defecto (flex-direction:row) como una fila*/
+    /*Mover los enlaces hacia el lado que desee*/
+    justify-content: flex-end; /*Se Desplazan.*/ 
+    
+}
+/*Proporcion de Crecimiento*/
+.menu li{
+    flex-grow: 1;/*Disbribuye Cada Elemnto Uniformemente*/
+    text-align: center;
+    border-right: 1px solid var(--color-linea);  
+}
+
+.menu li:hover{
+    background: rgba(0,0,0,0.3);/*Fondo Ocuro Tranparete*/
+}
+.menu li a{
+    display: block;
+    padding: 20px;
+    padding: 15px 20px;
+color: white;
+    text-decoration: none;/*Quita el sub-rayado de los enlaces.*/
+}
+
+@media(max-width:768px){
+      header label{
+        display: block;
+    }
+    .menu{
+        position: absolute;
+        background: var(--color-nav);
+        width: var(--tamano-menu); /*Un Ancho*/
+        margin-left: var(--tamano-menu);/*Envia el menu al lado izquierdo,oculto*/
+        transition: all 0.9s; /*Efecto de Transicion*/
+    }
+    .menu ul{
+        flex-direction:column;/*Ahora lo converte a una Columna*/
+        
+        
+    }
+    .menu li{
+        border-top: 1px solid var(--color-linea);/*Border Superiro*/
+        text-align:left;
+    } 
+    #btn-menu:checked ~ .menu{
+        margin: 0px;
+    }
+}
